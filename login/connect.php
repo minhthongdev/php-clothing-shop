@@ -1,6 +1,6 @@
 <?php
-    $connect = new mysqli('localhost','root','','doanweb');
-    $con=mysqli_connect('localhost','root', '', 'doanweb');
+    $connect = new mysqli('localhost','root','','web_database');
+    $con=mysqli_connect('localhost','root', '', 'web_database');
 
     // if($connect->errno !== 0)
     // {

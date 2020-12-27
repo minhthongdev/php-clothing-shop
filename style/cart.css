@@ -5,19 +5,21 @@
 }
 .section__cart{
     margin-top: 200px;
+    
+
 }
 .section__cart #cart-form{
-    height: 1500px;
+    height: 650px;
 }
 table {
     border-collapse: collapse;
-    width: 1170px;
+    width: 800px;
 }
 
 table,
 th,
 td {
-    border: 1px solid black;
+    border: none;
 }
 
 table .product-img img {
@@ -25,7 +27,7 @@ table .product-img img {
 }
 
 table .product-name {
-    width: 120px;
+    width: 60px;
     padding-left: 20px;
 }
 
@@ -40,7 +42,7 @@ table .product-number {
 }
 
 table .product-price {
-    width: 100px;
+    width: 50px;
     text-align: center;
 }
 
@@ -50,12 +52,12 @@ table .product-quantity input {
 }
 
 table .product-quantity {
-    width: 60px;
+    width: 40px;
     text-align: center;
 }
 
 table .total-money {
-    width: 100px;
+    width: 50px;
     text-align: center;
 }
 
@@ -65,23 +67,30 @@ table .total-money {
 }
 
 .product-delete {
-    width: 100px;
+    width: 50px;
     text-align: center;
 }
 
 #cart-form label {
     width: 100px;
     display: inline-block;
-    margin-top: 15px;
 }
+.table__section{
+    margin-left: 106px;
+    flex-basis: 56%;
 
+}
+.form__section{
+    box-shadow: 0px 0 0 #e1e1e1 inset;
+}
 #cart-form textarea {
     margin-top: 15px;
 }
 
 #cart-form input {
+    
     line-height: 30px;
-    height: 30px;
+    height: 40px;
 }
 
 input[name="order_click"] {
@@ -107,3 +116,6 @@ input[name="order_click"] {
     display: inline-block;
     color: #fff;
 }
+
+
+/* checkout */

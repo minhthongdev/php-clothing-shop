@@ -65,7 +65,7 @@
             </a>
             
 
-            <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems="0">
+            <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
                 <i class="fas fa-shopping-cart"></i>
             </a>
 
@@ -92,3 +92,6 @@
     </script>
 </body>
 </html>
+
+
+
