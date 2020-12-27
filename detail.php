@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,9 +14,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 
 </head>
-
-<body>
-  <style>
+<style>
     .main_detail {
       margin-top: 120px;
       height: 820px;
@@ -289,7 +288,10 @@
       }
     }
   </style>
+<body>
+ 
   <?php
+  
   include 'connect.php';
   $result = mysqli_query($con, "SELECT * FROM `sanpham` WHERE `MASP` = " . $_GET['MASP']);
   $product = mysqli_fetch_assoc($result);
@@ -355,7 +357,14 @@
                               </div> -->
             <form id="add-to-cart-form" action="cartDevelopment.php?action=add" method="POST">
               <input type="text" value="1" name="quantity[<?= $product['MASP'] ?>]" size="2" /><br />
-              <input type="submit" value="Mua sản phẩm" />
+              <?php 
+                if (isset($_SESSION['current_user'])) {
+                  echo "<input type='submit' value='Mua sản phẩm'/>";
+                }
+                else {
+                  echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua sản phẩm";
+                }
+              ?>
             </form>
           </div>
         </div>
