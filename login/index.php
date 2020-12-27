@@ -28,10 +28,10 @@
             $password = $_POST['password'];
             $sql = "SELECT * FROM user WHERE TAIKHOAN='$username'";
             $rs = $con->query($sql);
-            $row=mysqli_fetch_row($rs);
+            $row=mysqli_fetch_row($rs); 
             if(($username==$row[2] && $password==$row[3])){
                 $_SESSION['current_user'] = $row;
-                if (row[1]) {
+                if ($row[1]) {
                     header ('Location: ./../index.php');
                 }
             }
