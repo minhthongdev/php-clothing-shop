@@ -20,7 +20,6 @@
     <link rel="stylesheet" href="./style/header.css">
 </head>
 <body>
-
     <header class="header__content">  
         <nav class="menu__content navbar navbar-expand-lg navbar-dark ">
             <a class="navbar-brand" href="index.php">
@@ -55,14 +54,13 @@
                     <li class="nav-item">
                         <a class="nav-link contact__item" href="lienHe.php">LIÊN HỆ</a>
                     </li>
-                    
                 </ul>
             </div>
         </nav>
         
         <p class="info__content text-right text-white">
-            
-            <a href="" class="user__item">
+
+            <a href="login/index.php" class="user__item">
                 <i class="info__content__user ml-3 fa fa-user"></i>
             </a>
             
@@ -70,10 +68,28 @@
             <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
                 <i class="fas fa-shopping-cart"></i>
             </a>
-        
-            
+
+            <a href="#" class="user__item logout">
+                <i class="fas fa-sign-out-alt"></i>
+            </a>
         </p>
     </header>  
+    <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var logout = 'logout';
+            $('.logout').click(function (e) { 
+                $.ajax({
+                    url: 'logout.php',
+                    method: 'POST',
+                    data:{logout:logout},
+                    success: function(data){
+                        alert(data);
+                    }
+                })
+         });
+        });
+    </script>
 </body>
 </html>
 

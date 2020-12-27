@@ -19,10 +19,11 @@
 </head>
 
 <body>
-
-
     <?php
     include 'connect.php';
+    if (isset($_SESSION['current_user'])) {
+        $current_user = $_SESSION['current_user'];
+    }
     if (!isset($_SESSION["cart"])) {
         $_SESSION["cart"] = array();
     }
@@ -73,17 +74,29 @@
                             $total += $row['GIA'] * $_POST['quantity'][$row['MASP']];
                         }
 
-                        $insertOrder = mysqli_query($con, "INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NGAYHD`,
-                        `GIAMGIA`, `THANHTIEN`, `GHICHU`, `HOTEN`, `SDT`, 
-                        `DIACHI`) VALUES (NULL, NULL, '" . time() . "', '', '" . $total . "',
-                        '" . $_POST['note'] . "', '" . $_POST['name1'] . "',
-                         '" . $_POST['phone'] . "', '" . $_POST['address1'] . "');
-                        ");
+                        // $insertOrder = mysqli_query($con, "INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NGAYHD`,
+                        // `GIAMGIA`, `THANHTIEN`, `GHICHU`, `HOTEN`, `SDT`, 
+                        // `DIACHI`) VALUES (NULL, NULL, '" . time() . "', '', '" . $total . "',
+                        // '" . $_POST['note'] . "', '" . $_POST['name1'] . "',
+                        //  '" . $_POST['phone'] . "', '" . $_POST['address1'] . "');
+                        // ");
 
+                        // $orderID = $con->insert_id;
+                        // $insertString = "";
+                        // $num = 0;
+
+
+                        //     foreach ($orderProducts as $key => $product) {
+
+                        $insertOrder = mysqli_query($con, "INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NGAYHD`,
+                            `GIAMGIA`, `THANHTIEN`, `GHICHU`,`TrangThai`, `IDNGUOIDUYET`, `HOTEN`, `SDT`, 
+                            `DIACHI`) VALUES (NULL, $current_user[1],  '" . time() . "',  '', '" . $total . "',
+                            '" . $_POST['note'] . "', 0 ,null, '" . $_POST['name1'] . "',
+                            '" . $_POST['phone'] . "', '" . $_POST['address1'] . "');
+                            ");
                         $orderID = $con->insert_id;
                         $insertString = "";
                         $num = 0;
-
 
                         foreach ($orderProducts as $key => $product) {
 
@@ -114,18 +127,18 @@
     ?>
 
     <div class="section__cart">
-        <?php if (!empty($error)) { ?> 
-                <div id="checkout__section" style="margin-left: 100px;">
-                    <?= $error ?>. <a href="javascript:history.back()">Quay lại</a>
-                </div>
-            <?php } else if (!empty($success)) { ?>
-                <div id="checkout__section"  style="margin-left: 100px;">
-                    <?= $success ?>. <a href="accessories.php">Tiếp tục mua hàng</a>
-                </div>
-            <?php } else { ?>
+        <?php if (!empty($error)) { ?>
+            <div id="checkout__section" style="margin-left: 100px;">
+                <?= $error ?>. <a href="javascript:history.back()">Quay lại</a>
+            </div>
+        <?php } else if (!empty($success)) { ?>
+            <div id="checkout__section" style="margin-left: 100px;">
+                <?= $success ?>. <a href="accessories.php">Tiếp tục mua hàng</a>
+            </div>
+        <?php } else { ?>
 
 
-       
+
             <form id="cart-form" action="cartDevelopment.php?action=submit" method="POST">
                 <div class="">
                     <div class="row">
@@ -177,12 +190,29 @@
                             </div>
                         </div>
                         <div class="col-md-4 col-12 form__section">
+                            <?php
+                            if (isset($_SESSION['current_user'])) {
+                                $makh = $current_user[1];
+                                $sql = "SELECT HOTEN, SDT, DIACHI FROM KHACHHANG WHERE MAKH= $makh";
+                                $rs = $con->query($sql);
+                                $row = mysqli_fetch_row($rs);
+                                $ten = $row[0];
+                                $sdt = $row[1];
+                                $diachi = $row[2];
 
-                            <div><label>Người nhận: </label><input class="input__item" type="text" value="" name="name1" /></div>
-                            <div><label>Điện thoại: </label><input class="input__item" type="text" value="" name="phone" /></div>
-                            <div><label>Địa chỉ: </label><input class="input__item" type="text" value="" name="address1" /></div>
-                            <div><label>Ghi chú: </label><textarea name="note" cols="50" rows="7"></textarea></div>
-                            <input type="submit" name="order_click" value="Đặt hàng" />
+                                echo "
+                            <div>
+                            <label>Người nhận: </label><input class='input__item' type='text' value='$ten' name='name1' /></div>
+                            <div><label>Điện thoại: </label><input class='input__item' type='text' value='$sdt' name='phone' /></div>
+                            <div><label>Địa chỉ: </label><input class='input__item' type='text' value='$diachi' name='address1' /></div>
+                            <div><label>Ghi chú: </label><textarea name='note' cols='50' rows='7'></textarea></div>
+                            <input type='submit' name='order_click' value='Đặt hàng' />
+                    ";
+                            } else {
+                                echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua hàng";
+                            }
+                            ?>
+
                         </div>
                     </div>
                 </div>
@@ -192,6 +222,9 @@
             </form>
 
         <?php } ?>
+    </div>
+
+
 
     </div>
 

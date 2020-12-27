@@ -115,7 +115,11 @@ header{
     width: 100%;
 }
 
-
+.logout {
+    margin-left: 70px !important;
+    font-size: 20px;
+    margin-bottom: 5px;
+}
 
 @media only screen and (max-width:600px){
     .info__content{
