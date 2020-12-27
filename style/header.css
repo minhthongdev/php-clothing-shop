@@ -1,0 +1,123 @@
+ /* global */
+ *{
+    overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+}
+
+
+header .menu__content{
+    position: relative;
+    /* height: 300px; */
+    padding: 0;
+    margin: 0;
+}
+
+
+/*  làm cho header luôn theo */
+header{
+    background-color: #000000;
+    padding: 5px 20px;
+    position: fixed;
+    z-index: 10000;
+    width: 100%;
+}
+
+.navbar-brand img{
+    height: 60px;
+    width: 100px;
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+}
+
+.header__content #grimmNavbar .navbar-nav{
+    margin-left: 250px;
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+}
+.info__content{
+    position: absolute;
+    top: 35%;
+    left: 89%;
+}
+.info__content i{
+    font-size: 30px;
+    height: 32px;
+}
+ .info__content .info__content__user{
+    font-size: 20px;
+    /* height: 22px; */
+    margin-top: 6px;
+}
+.cart {
+    position: fixed;
+    top: 23px;
+    right: 50px;
+    width: 50px;
+    height: 50px;
+    /* background: #292d48; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  .cart i {
+    font-size: 25px;
+    color: white;
+  }
+  .cart:before {
+    content: attr(data-totalitems);
+    font-size: 18px;
+    font-weight: 600;
+    position: absolute;
+    top: 9px;
+    right: 11px;
+    line-height: 24px;
+    padding: 0 5px;
+    color: #345372;
+    text-align: center;
+    border-radius: 24px;
+  }
+.info__content .user__item,.info__content .cart__item {
+    text-decoration: none;
+    color: #fff;  
+    font-size: 20px; 
+}
+.info__content .search, .info__content .fa-search{
+    cursor: pointer;
+    height: 32px;
+}
+
+#grimmNavbar .navbar-nav .nav-item{
+    padding: 0 16px;
+}
+
+#grimmNavbar .navbar-nav .nav-item .a{
+    display: none;
+    color: #fff;
+}
+
+#grimmNavbar .navbar-nav .nav-item::after{
+    content: "";
+    /* chưa rê chuột nên width 0 */
+    width: 0;
+    height: 3px;
+    display: block;
+    /* màu trải */
+    background: linear-gradient(to right, #fff, #ffffff);
+    transition: all 0.5s;
+}
+
+#grimmNavbar .navbar-nav .nav-item:hover::after{
+    width: 100%;  
+}
+
+#grimmNavbar .navbar-nav .nav-item.active::after{
+    width: 100%;
+}
+
+
+
+@media only screen and (max-width:600px){
+    .info__content{
+        display: none;
+    }}
