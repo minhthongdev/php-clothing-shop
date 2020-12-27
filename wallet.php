@@ -28,7 +28,7 @@
         }
 
         .main_products {
-            height: 2380px !important;
+            height: 1180px !important;
         }
     </style>
 
@@ -52,40 +52,19 @@
         $orderCondition = "ORDER BY `sanpham`.`" . $orderField . "`" . $orderSort;
         $param .= "field=" . $orderField . "&sort=" . $orderSort . "";
     }
-
-
     include 'connect.php';
     $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 24;
     $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
     $offset = ($current_page - 1) * $item_per_page;
     if ($search) {
-        $products = mysqli_query($con, "select * from `sanpham` where MALOAI IN (4,5,6,7) AND `TENSP` LIKE '%" . $search . "%'  " . $orderCondition . "  LIMIT " . $item_per_page . " OFFSET " . $offset . " ");
-        $totalRecords = mysqli_query($con, "select * from `sanpham` where MALOAI IN (4,5,6,7) AND `TENSP` LIKE '%" . $search . "%'");
+        $products = mysqli_query($con, "select * from `sanpham` where MALOAI = 7 AND `TENSP` LIKE '%" . $search . "%'  " . $orderCondition . "  LIMIT " . $item_per_page . " OFFSET " . $offset . " ");
+        $totalRecords = mysqli_query($con, "select * from `sanpham` where MALOAI = 7 AND `TENSP` LIKE '%" . $search . "%'");
     } else {
-        $products = mysqli_query($con, "select * from `sanpham` WHERE MALOAI IN (4,5,6,7) " . $orderCondition . "  LIMIT " . $item_per_page . " OFFSET " . $offset . " ");
-        $totalRecords = mysqli_query($con, "select * from `sanpham` where MALOAI IN (4,5,6,7)");
+        $products = mysqli_query($con, "select * from `sanpham` WHERE MALOAI = 7 " . $orderCondition . "  LIMIT " . $item_per_page . " OFFSET " . $offset . " ");
+        $totalRecords = mysqli_query($con, "select * from `sanpham` where MALOAI=7");
     }
     $totalRecords = $totalRecords->num_rows;
     $totalPages = ceil($totalRecords / $item_per_page);
-
-
-
-
-
-    // include 'connect.php';
-    // $item_per_page = !empty($_GET['per_page']) ? $_GET['per_page'] : 24;
-    // $current_page = !empty($_GET['page']) ? $_GET['page'] : 1;
-    // $offset = ($current_page - 1) * $item_per_page;
-    // $products = mysqli_query($con, "select * from sanpham where MALOAI IN (4,5,6,7)  LIMIT " . $item_per_page . " OFFSET " . $offset . " ");
-    // $totalRecords = mysqli_query($con, "select * from sanpham where MALOAI IN (4,5,6,7)");
-    // $totalRecords = $totalRecords->num_rows;
-    // $totalPages = ceil($totalRecords / $item_per_page);
-
-
-
-
-
-
     ?>
     <?php
     require "inc/header.php";
@@ -93,14 +72,12 @@
     ?>
 
 
-    <div class="main_products main_products_accessories">
-
+    <div class="main_products main__products__wallet">
         <form id="product-search" action="" method="GET">
             <div class="lookup__section">
                 <input type="text" name="search" placeholder="Search.." value="<?= isset($_GET['search']) ? $_GET['search'] : "" ?>" require>
             </div>
         </form>
-
 
 
         <ul class="lightrope">
@@ -158,7 +135,6 @@
                 <option value="?<?= $sortParam ?>field=GIA&sort=desc">Giá dưới 300k</option>
 
             </select>
-
 
 
             <div class="row">

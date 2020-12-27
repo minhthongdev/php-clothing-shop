@@ -147,16 +147,16 @@
                                 <a class="nav-link" href="outerwearDevelopment.php">ÁO KHOÁC</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">BALO</a>
+                                <a class="nav-link" href="backpack.php">BALO</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">TÚI</a>
+                                <a class="nav-link" href="tote.php" >TÚI</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">NÓN</a>
+                                <a class="nav-link" href="hats.php">NÓN</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link">VÍ</a>
+                                <a class="nav-link" href="wallet.php">VÍ</a>
                             </li>
                            
                         </ul>

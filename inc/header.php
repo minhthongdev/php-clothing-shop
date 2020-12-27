@@ -66,11 +66,8 @@
                 <i class="info__content__user ml-3 fa fa-user"></i>
             </a>
             
-            <!-- <a href="cart.php" class="cart__item">
-                <i class="ml-3 fa fa-shopping-bag"></i>
-            </a> -->
 
-            <a href="cart.php" id="cart" class=" cart cart__item" data-totalitems="0">
+            <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
                 <i class="fas fa-shopping-cart"></i>
             </a>
         
@@ -79,3 +76,6 @@
     </header>  
 </body>
 </html>
+
+
+
