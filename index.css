@@ -132,6 +132,9 @@ header {
 .carousel-inner .carousel-item .carousel-caption p {
     color: #fbbd61;
 }
+.carousel-inner .carousel-item .carousel-caption h1 {
+    height: 50px;
+}
 
 .carousel-inner .carousel-item .carousel-caption h2 {
     font-size: 52px;
@@ -146,6 +149,12 @@ header {
 .carousel-inner .carousel-item .carousel-caption h3 {
     font-size: 18px;
     color: #fff;
+    height: 30px;
+}
+.carousel-inner .carousel-item .carousel-caption .caption__text {
+    font-size: 18px;
+    color: #fff;
+    height: 125px;
 }
 
 .marterial__icon {
@@ -257,6 +266,7 @@ header {
 
 .play__button {
     color: white;
+    height: 20px;
 }
 
 .carousel__video a:hover {

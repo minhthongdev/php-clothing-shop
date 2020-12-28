@@ -97,7 +97,7 @@
                             ta nói cho thế giới biết: Người Hà Nội luôn luôn dẫn đầu.
                         </h1>
 
-                        <h3 class="d-none d-md-block">Hà Nội là nơi ta sinh ra. Đất tổ vàng với lẫy lừng lịch sử, ta kể lại bên những
+                        <h3 class="caption__text" class="d-none d-md-block">Hà Nội là nơi ta sinh ra. Đất tổ vàng với lẫy lừng lịch sử, ta kể lại bên những
                             cốc trà: 1000 năm rực rỡ. 1000 năm đứng thẳng không quỳ. Bao kiếp nạn, phong kiến đ
                             ô hộ thực dân vẫn không suy. Thủ đô vàng, trái tim Việt Nam. Mười ngàn năm nữa vẫn sẽ
                             đập, cuồn cuộn dòng máu nóng Bắc Nam, mãi mãi chung một nhà. Ta yêu từng ngỏ nhỏ, nhớ t
