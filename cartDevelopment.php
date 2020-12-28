@@ -220,7 +220,7 @@
                                         }
                                     }
                                 ?>
-                                <input type="submit" name="update_click" value="Cập nhật" />
+                                <input class="input__update__cart" type="submit" name="update_click" value="Cập nhật" />
                             </div>
                         </div>
                         <div class="col-md-4 col-12 form__section">
@@ -234,13 +234,13 @@
                                     $sdt = $row[1];
                                     $diachi = $row[2];
                                     echo "
-                                <div>
+                                <div class='form__section__input'>
                                 <label>Người nhận: </label><input class='input__item' type='text' value='$ten' name='name1' /></div>
-                                <div><label>Điện thoại: </label><input class='input__item' type='text' value='$sdt' name='phone' /></div>
-                                <div><label>Địa chỉ: </label><input class='input__item' type='text' value='$diachi' name='address1' /></div>
-                                <div><label>Ghi chú: </label><textarea name='note' cols='50' rows='7'></textarea></div>";
+                                <div class='form__section__input'><label>Điện thoại: </label><input class='input__item' type='text' value='$sdt' name='phone' /></div>
+                                <div class='form__section__input'><label>Địa chỉ: </label><input class='input__item' type='text' value='$diachi' name='address1' /></div>
+                                <div class='form__section__input'><label>Ghi chú: </label><textarea name='note' cols='50' rows='7'></textarea></div>";
                                 if ($temp == 0) {  
-                                echo "<input type='submit' name='order_click' value='Đặt hàng' />";
+                                echo "<input type='submit' name='order_click' class='button__order__click' value='Đặt hàng' />";
                                 }
                                 else {
                                     echo "<div class='red'>Số lượng sản phẩm không đủ để thực hiện mua hàng, vui lòng chọn lại</div>";
