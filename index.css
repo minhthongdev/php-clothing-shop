@@ -6,12 +6,9 @@
     /* overflow-y: hidden; */
 }
 
-html,
-body {}
-
+html, body {}
 
 /* có bootstrap nên kh cần khai báo margin 0 padding 0, box-sizing */
-
 
 /* header */
 
@@ -20,13 +17,11 @@ header .menu__content {
     margin: 0;
 }
 
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
+.carousel-control-prev-icon, .carousel-control-next-icon {
     /* color: violet; */
     width: 50px;
     height: 40px;
 }
-
 
 /*  làm cho header luôn theo */
 
@@ -68,8 +63,7 @@ header {
     color: #fff;
 }
 
-.info__content .search,
-.info__content .fa-search {
+.info__content .search, .info__content .fa-search {
     cursor: pointer;
 }
 
@@ -100,7 +94,6 @@ header {
 #grimmNavbar .navbar-nav .nav-item.active::after {
     width: 100%;
 }
-
 
 /* carousel */
 
@@ -163,15 +156,13 @@ header {
     color: #fff;
 }
 
-.carousel__trailer_banner .button,
-.carousel__trailer button {
+.carousel__trailer_banner .button, .carousel__trailer button {
     position: relative;
     z-index: 1;
     /* color: #fff; */
 }
 
-.carousel__trailer_banner .button__icon,
-.carousel__trailer .button__icon {
+.carousel__trailer_banner .button__icon, .carousel__trailer .button__icon {
     cursor: pointer;
     /* color: #ec7532; */
     outline: none;
@@ -192,12 +183,10 @@ header {
     background-image: linear-gradient(to right, #fff, #ffffff)
 }
 
-.carousel__trailer_banner .button__icon:hover,
-.carousel__trailer .button__icon:hover {
+.carousel__trailer_banner .button__icon:hover, .carousel__trailer .button__icon:hover {
     background-image: linear-gradient(to right, wheat, #fff);
     font-weight: 550;
 }
-
 
 /* Banner */
 
@@ -232,7 +221,6 @@ header {
 .bannertop__text h5 {
     color: white;
 }
-
 
 /* gellery */
 
@@ -275,17 +263,21 @@ header {
     font-size: 22px;
 }
 
-
 /* HÀNG MỚI VỀ  */
 
-.responsive .thongdeptrai h4 {
-    letter-spacing: 2px;
+.New__Arrival__Section {
+    margin-bottom: 60px;
+}
+
+.New__Arrival__Section .thongdeptrai h4 {
+    letter-spacing: 4px;
     color: #000000;
     text-transform: uppercase !important;
     font-family: opensans !important;
     font-weight: auto;
     line-height: auto;
     /* position: relative; */
+    padding-bottom: 50px;
 }
 
 .newIn__img {
@@ -308,6 +300,8 @@ header {
 }
 
 .image__hover img {
+    width: 308px !important;
+    height: 308px !important;
     opacity: 0;
     transition: all 0.5s ease-in-out;
     position: absolute;
@@ -316,6 +310,39 @@ header {
     left: 0;
 }
 
+.newIn__img img {
+    width: 308px;
+    height: 308px;
+}
+
+.blue h3 {
+    background: #fff;
+    color: #3498db;
+    font-size: 36px;
+    margin: 10px;
+    /* padding: 20px 10px; */
+    text-align: center;
+}
+
+.slick-slider .slick-arrow {
+    font-size: 40px;
+    position: absolute;
+    top: 41%;
+    cursor: pointer;
+    z-index: 99;
+    transition: all 300ms ease-in-out;
+    background: linear-gradient(to bottom, #fbbd61, #ec7532);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.slick-slider .slick-arrow.left {
+    left: 1px;
+}
+
+.slick-slider .slick-arrow.right {
+    right: 37px;
+}
 
 /* cửa hàng */
 
@@ -361,7 +388,6 @@ header {
     left: 34%;
 }
 
-
 /* FOOTER */
 
 .footer__logo img {
@@ -402,8 +428,7 @@ footer {
     padding: 0px;
 }
 
-.footerInfo a,
-.footerInfo .info {
+.footerInfo a, .footerInfo .info {
     color: black;
     padding: 3px 0;
     letter-spacing: 1.5px;
@@ -479,8 +504,7 @@ footer {
     .bannertop__content {
         margin-bottom: 30px;
     }
-    .bannertop__text h2,
-    .bannertop__text h5 {
+    .bannertop__text h2, .bannertop__text h5 {
         display: none;
     }
     .carousel__trailer_banner {
@@ -496,8 +520,7 @@ footer {
     .carousel__content .carousel__video a i {
         opacity: 1;
     }
-    .home__gallery h2,
-    .home__gallery h5 {
+    .home__gallery h2, .home__gallery h5 {
         font-size: 12px;
     }
     .carousel__video {

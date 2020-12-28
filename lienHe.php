@@ -1,12 +1,9 @@
-<<<<<<< HEAD
 <?php 
     if(!isset($_SESSION)) 
     { 
         session_start(); 
     } 
 ?>
-=======
->>>>>>> b5465528556862b121c9b4286cf9d8cb163344de
 <!-- <link rel="stylesheet" href="index.css" /> -->
 
 

@@ -18,7 +18,7 @@
 }
 
 .main_products {
-    height: 2358px;
+    height: 2428px;
     margin-top: 110px;
     /* margin-left: 180px;
     margin-right: 180px; */
@@ -120,8 +120,8 @@ header .menu__content #grimmNavbar .navbar-nav .nav-item .products__item {
     text-align: center;
     white-space: nowrap;
     overflow: hidden;
-    position: absolute;
-    z-index: 1;
+    /* position: absolute; */
+    /* z-index: 1; */
     margin: -15px 0 0 0;
     padding: 0;
     pointer-events: none;
@@ -264,7 +264,7 @@ header .menu__content #grimmNavbar .navbar-nav .nav-item .products__item {
     position: absolute;
     right: 264px;
     top: 133px;
-    z-index: 100;
+    z-index: 10;
 }
 
 .lookup__section input[type=text] {

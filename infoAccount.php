@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style/infoAccount.css?v=<?php echo time(); ?>">
 </head>
 <body>
@@ -20,12 +22,12 @@
     ?>
     <div class='container info-account'>
         <h1 class='title'>Tài khoản của bạn<h1>
-        <h3 >Thông tin tài khoản</h3>
+        <h3 class="infoAccount">Thông tin tài khoản</h3>
         <h5><?= $row[1] ?></h5>
         <p><?= $row[2] ?></p>
         <p><?= $row[4] ?></p>
         <p><?= $row[3] ?></p>
-        <h3>Danh sách đơn hàng đã mua</h3>
+        <h3  class="infoBill">Danh sách đơn hàng đã mua</h3>
         <table class="table table-bordered table-hover">
             <thead>
                 <tr>

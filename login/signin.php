@@ -18,13 +18,12 @@ if (!isset($_SESSION)) {
 
     <!-- FILE CSS -->
     <link rel="stylesheet" href="./login.css?v=<?php echo time(); ?>" />
-
 </head>
 
 <body>
 
     <?php
-    // require "./Reheader.php";
+    require "./Reheader.php";
     require "../public/js.php";
     ?>
     <div class="login__section">
@@ -68,7 +67,7 @@ if (!isset($_SESSION)) {
   
 
     <?php
-    // require "./Refooter.php";
+    require "./Refooter.php";
     include './connect.php';
     if (isset($_POST['submit'])) {
         $username = $_POST['name'];

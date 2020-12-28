@@ -1,7 +1,38 @@
-.info-account {
-    margin-top: 150px;
-    overflow: hidden;
-    margin-bottom: 50px;
+*{
+    overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+}
+.info-account .title{
+    margin-top: 110px;
+    font-size: 37px;
+    font-weight: 700;
+    /* margin: 0; */
+    text-align: center;
+}
+
+.info-account .title::after{
+    content: "";
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin: 25px auto 0;
+    background: #252a2b;
+}
+.info-account .infoAccount{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: 1px solid #ededed;
+    padding-bottom: 8px;
+
+}
+.info-account .infoBill{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight: bold;
+    /* padding-bottom: 8px; */
+    margin-top: 26px;
+
 }
 
 h1, h3 {
@@ -9,10 +40,6 @@ h1, h3 {
     font-weight: bold;
 }
 
-.title {
-    text-align: center;
-    border-bottom: 1px solid black;
-}
 
 table {
     margin-bottom: 20px;

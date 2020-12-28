@@ -72,7 +72,7 @@
                     $link = './infoAccount.php';
                 }
                 else {
-                    $link = 'login/index.php';
+                    $link = 'login/signin.php';
                 }
                 echo "
                     <a href='$link' class='user__item'>
