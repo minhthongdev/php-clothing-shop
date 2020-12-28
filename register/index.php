@@ -78,8 +78,8 @@
         $address = $_POST['address'];
         $username = $_POST['username'];
         $password = $_POST['password'];
-        // $sqlInsert = "INSERT INTO `khachhang`(`MAKH`, `HOTEN`, `EMAIL`, `SDT`, `DIACHI`) VALUES (NULL,'$fullname','$email',$phone,'$address')";
-        // $insert = $con->query($sqlInsert);
+        $sqlInsert = "INSERT INTO `khachhang`(`MAKH`, `HOTEN`, `EMAIL`, `SDT`, `DIACHI`) VALUES (NULL,'$fullname','$email',$phone,'$address')";
+        $insert = $con->query($sqlInsert);
         $_idNewest = $con->query("SELECT makh from khachhang order by makh desc limit 1");
         $idNewest = (int)mysqli_fetch_row($_idNewest)[0];
         $sqlInsUser = $con->query("INSERT INTO `user`(`userid`, `MAKH`, `TAIKHOAN`, `MATKHAU`, `ROLE`, `HOTEN`) VALUES (null, $idNewest, '$username', '$password', 0,'$fullname')");
