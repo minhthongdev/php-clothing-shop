@@ -268,7 +268,10 @@ header {
     color: white;
     height: 20px;
 }
-
+.play__button:hover {
+    color: white;
+    height: 50px;
+}
 .carousel__video a:hover {
     font-size: 22px;
 }

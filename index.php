@@ -83,7 +83,7 @@
 
                             <button class="button__icon">
                                 <i class="marterial__icon fa fa-play"></i>
-                                <a href="lietKeSanPham.php" style="color: #000000"> XEM THÊM</a>
+                                <a href="tShirtDevelopment.php" style="color: #000000"> XEM THÊM</a>
 
                             </button>
                         </div>
@@ -106,7 +106,8 @@
                         <div class="carousel__trailer">
                             <button class="button__icon">
                                 <i class="marterial__icon fa fa-play"></i>
-                                XEM THÊM
+                                <a href="tShirtDevelopment.php" style="color: #000000"> XEM THÊM</a>
+
                             </button>
                         </div>
                     </div>
@@ -122,7 +123,8 @@
                         <div class="carousel__trailer">
                             <button class="button__icon">
                                 <i class="marterial__icon fa fa-play"></i>
-                                XEM THÊM
+                                <a href="tote.php" style="color: #000000"> XEM THÊM</a>
+
                             </button>
                         </div>
                     </div>
@@ -154,9 +156,10 @@
                     đơn thuần là tạo ra những sản phẩm chất lượng mà là
                     “những sản phẩm hoàn hảo nhất do người Việt làm”</h5>
                 <div class="carousel__trailer_banner">
-                    <button class="button__icon ">
+                    <button class="button__icon">
                         <i class="marterial__icon fa fa-play"></i>
-                        XEM THÊM
+                        <a href="tote.php" style="color: #000000"> XEM THÊM</a>
+
                     </button>
                 </div>
             </div>
@@ -181,7 +184,8 @@
             <div class="carousel__trailer text-center mt-5">
                 <button class="button__icon">
                     <i class="marterial__icon fa fa-play"></i>
-                    XEM THÊM
+                    <a href="outerwearDevelopment.php" style="color: #000000"> XEM THÊM</a>
+
                 </button>
             </div>
         </div>
@@ -194,9 +198,10 @@
             <img src="./img/banner_bottom_img.webp" alt="img">
             <div class="bannertop__text">
                 <div class="carousel__trailer_banner">
-                    <button class="button__icon ">
+                    <button class="button__icon">
                         <i class="marterial__icon fa fa-play"></i>
-                        XEM THÊM
+                        <a href="pantsDevelopment.php" style="color: #000000"> XEM THÊM</a>
+
                     </button>
                 </div>
             </div>
