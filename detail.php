@@ -7,300 +7,48 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous" />
+  <!-- FONT GOOGLE -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400&display=swap" rel="stylesheet">
   <!-- SLICK -->
   <link rel="stylesheet" type="text/css" href="slick/slick.css" />
   <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+  <!-- slick carousel -->
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
+
   <!-- detail css -->
-  <link rel="stylesheet" href="style/detail.css" />
+  <link rel="stylesheet" href="style/detail.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>
-<style>
-    .main_detail {
-      margin-top: 120px;
-      height: 820px;
-    }
-
-    .main_detail .slider-nav {
-      /* display: none; */
-      height: 140px;
-    }
-
-    .main_detail .slider-nav .slick-list .slick-track .slick-slide {
-      border: 1px solid rgba(153, 152, 152, 0.9);
-      margin-right: 8px;
-      cursor: pointer;
-    }
-
-    .main_detail .slider-nav .slick-list .slick-track .slick-slide:hover {
-      border: 1px solid black;
-    }
-
-    .products__info {
-      margin-top: 60px;
-    }
-
-    .products__name {
-      width: full;
-      font-size: 28px;
-      color: #000;
-      margin: 0;
-
-      /* border-width: 20px; */
-    }
-
-    .products__name:after {
-      content: '';
-      display: block;
-      width: 50px;
-      height: 2px;
-      background: #000000;
-      margin: 20px 0;
-    }
-
-    .products__price {
-      font-size: 28px;
-      display: inline-block;
-      margin-right: 15px;
-      color: #000;
-      width: 100%;
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(153, 152, 152, 0.2);
-    }
 
 
-    /* increase decrease NUMBER */
-    form {
-      width: 200px;
-      margin-top: 24px;
-      margin-left: 14px;
-    }
 
-    .value-button {
-      display: inline-block;
-      border: 1px solid #ddd;
-      margin: 0px;
-      width: 50px;
-      height: 50px;
-      text-align: center;
-      vertical-align: middle;
-      padding: 11px 0;
-      background: #eee;
-      -webkit-touch-callout: none;
-      -webkit-user-select: none;
-      -khtml-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
-      user-select: none;
-    }
 
-    .value-button:hover {
-      cursor: pointer;
-    }
-
-    form #decrease {
-      margin-right: 4px;
-      border-radius: 3px;
-    }
-
-    form #increase {
-      margin-left: 4px;
-      border-radius: 3px;
-    }
-
-    form #input-wrap {
-      margin: 0px;
-      padding: 0px;
-    }
-
-    input#number {
-      text-align: center;
-      margin-top: 1px;
-      width: 50px;
-      height: 50px;
-      border: 1px solid #ddd;
-      border-radius: 3px;
-
-    }
-
-    input[type=number]::-webkit-inner-spin-button,
-    input[type=number]::-webkit-outer-spin-button {
-      -webkit-appearance: none;
-      margin: 0;
-    }
-
-    .section__number-cart {
-      display: flex;
-      justify-content: flex-start;
-    }
-
-    .carousel__trailer {
-      margin-top: 32px;
-    }
-
-    .carousel__trailer button {
-      position: relative;
-      z-index: 1;
-      /* color: #fff; */
-    }
-
-    .carousel__trailer .button__icon {
-      cursor: pointer;
-      outline: none;
-      box-shadow: none;
-      font-size: 13px;
-      font-weight: normal;
-      position: relative;
-      overflow: hidden;
-      width: auto;
-      padding: 12px 16px;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      color: #000000;
-      font-weight: 500;
-      border-width: 2px;
-      border-radius: 30px;
-      border: none;
-      background-image: black;
-    }
-
-    .carousel__trailer .button__icon:hover {
-      background-image: #fff;
-      font-weight: 550;
-    }
-
-    @media only screen and (max-width:600px) {
-      .main_detail {
-        height: 1100px;
-      }
-    }
-
-    /* -------------------- */
-    html,
-    body {
-      height: 100%;
-      min-height: 100%;
-      font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
-    }
-
-    *,
-    *:before,
-    *:after {
-      box-sizing: border-box;
-    }
-
-    .page-wrapper {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .page-wrapper button {
-      padding: 20px;
-      border: none;
-      background: #d5d8e7;
-      position: relative;
-      outline: none;
-      border-radius: 5px;
-      color: #292d48;
-      font-size: 18px;
-    }
-
-    .page-wrapper button .cart-item {
-      position: absolute;
-      height: 24px;
-      width: 24px;
-      top: -10px;
-      right: -10px;
-    }
-
-    .page-wrapper button.sendtocart .cart-item {
-      display: block;
-      animation: xAxis 1s forwards cubic-bezier(1, 0.44, 0.84, 0.165);
-    }
-
-    .page-wrapper button.sendtocart .cart-item:before {
-      animation: yAxis 1s alternate forwards cubic-bezier(0.165, 0.84, 0.44, 1);
-    }
-
-    .cart {
-      position: fixed;
-      top: 23px;
-      right: 50px;
-      width: 50px;
-      height: 50px;
-      /* background: #292d48; */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-    }
-
-    .cart i {
-      font-size: 25px;
-      color: white;
-    }
-
-    .cart:before {
-      content: attr(data-totalitems);
-      font-size: 18px;
-      font-weight: 600;
-      position: absolute;
-      top: 9px;
-      right: 11px;
-      line-height: 24px;
-      padding: 0 5px;
-      color: #345372;
-      text-align: center;
-      border-radius: 24px;
-    }
-
-    .cart.shake {
-      animation: shakeCart 0.4s ease-in-out forwards;
-    }
-
-    @keyframes xAxis {
-      100% {
-        transform: translateX(calc(50vw - 105px));
-      }
-    }
-
-    @keyframes yAxis {
-      100% {
-        transform: translateY(calc(-50vh + 75px));
-      }
-    }
-
-    @keyframes shakeCart {
-      25% {
-        transform: translateX(6px);
-      }
-
-      50% {
-        transform: translateX(-4px);
-      }
-
-      75% {
-        transform: translateX(2px);
-      }
-
-      100% {
-        transform: translateX(0);
-      }
-    }
-  </style>
-<body>
- 
   <?php
-  
+
   include 'connect.php';
   $result = mysqli_query($con, "SELECT * FROM `sanpham` WHERE `MASP` = " . $_GET['MASP']);
   $product = mysqli_fetch_assoc($result);
   $imgLibrary = mysqli_query($con, "SELECT `HINHCHINH`,`HINH1` FROM `sanpham` WHERE `MASP` = " . $_GET['MASP']);
   $product['images'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
+
+
+
+  $resultNewArrival = mysqli_query($con, "SELECT * FROM `sanpham` GROUP by MASP DESC LIMIT 5");
+  $productNewArrival = mysqli_fetch_assoc($resultNewArrival);
+  $imgLibrary = mysqli_query($con, "SELECT `HINHCHINH`,`HINH1` FROM `sanpham` WHERE `MASP` = " . $_GET['MASP']);
+
+
+
+
   ?>
+
   <?php
   require "inc/header.php";
   // require "public/js.php";
@@ -343,124 +91,130 @@
               <div class="value-button" id="decrease" onclick="decreaseValue()" value="Decrease Value">-</div>
               <input type="number" id="number" value="1" name="quantity[<?= $product['MASP'] ?>]" />
               <div class="value-button" id="increase" onclick="increaseValue()" value="Increase Value">+</div>
-              
-              <?php 
-                if (isset($_SESSION['current_user'])) {
-                  echo "<input type='submit' class='mt-4 button__buy__product' value='MUA NGAY' />";
-                }
-                else {
-                  echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua sản phẩm";
-                }
+
+              <?php
+              if (isset($_SESSION['current_user'])) {
+                echo "<input type='submit' class='mt-4 button__buy__product' value='MUA NGAY' />";
+              } else {
+                echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua sản phẩm";
+              }
               ?>
             </form>
           </div>
         </div>
       </div>
     </div>
+  </div>
 
-    <div class=" responsive">
-      <div class="grimm__product">
-        <div class="contdainer ">
-          <div class="row ">
-            <div class="col-12 text-center thongdeptrai">
-              <h4>SẢN PHẨM MỚI VỀ</h4>
-            </div>
-          </div>
-          <div class="py-1">
-            <div class="row">
-              <div class="row NewIn-slider-nav ml-5 mr-5">
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin3.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin3a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Cure Ultimate Cleaning Kit</p>
-                  </div>
-                </div>
 
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
-                <div class="col-6">
-                  <div class="newIn__img ">
-                    <img src="img/newin5.webp" alt="">
-                    <div class="image__hover">
-                      <img src="img/newin5a.webp" alt="">
-                    </div>
-                  </div>
-                  <div class="newIn__title">
-                    <p>Crep Protect - Pills</p>
-                  </div>
-                </div>
 
-              </div>
 
-            </div>
+
+  <div class=" New__Arrival__Section">
+    <div class="grimm__product">
+      <div class="contdainer ">
+        <div class="row ">
+          <div class="col-12 text-center thongdeptrai">
+            <h4>SẢN PHẨM MỚI VỀ</h4>
           </div>
         </div>
+        <div class="py-1">
+
+          <div class="row ml-5 mr-5">
+            <div class="col-12 mx-auto">
+              <div class="slider-nav1">
+                <div class="cosl-3">
+                  <a href="?MASP=741">
+                    <div class="newIn__img ">
+                      <img src="//product.hstatic.net/1000351433/product/0c8a4dda-804d-435f-9700-800ae3e6b2f6_d944fb586b644de6a0b593dc5705e150_master.jpg" alt="">
+                      <div class="image__hover">
+                        <img src="http://product.hstatic.net/1000351433/product/506df52b-b083-4e99-85e3-08c5c31af412_7411f34241ab4685b4b65c16cc5746d1_master.jpg" alt="">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="newIn__title">
+                    <p>Bad Colorful</p>
+                  </div>
+                </div>
+                <div class="cosl-3">
+                  <a href="?MASP=745">
+                    <div class="newIn__img ">
+                      <img src="http://product.hstatic.net/1000351433/product/31479409-38e7-47c5-b45d-09ad541b6928_5e53f09f5a594484831fb4f73b2f2612_master.jpg" alt="">
+                      <div class="image__hover">
+                        <img src="http://product.hstatic.net/1000351433/product/bd626ec9-d9c7-4867-9be1-ee4a089a3b3e_9842eceb79bc4f74a99bbe215e670221_master.jpg" alt="">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="newIn__title">
+                    <p>Rabbigel</p>
+                  </div>
+                </div>
+                <div class="csol-3">
+                  <a href="?MASP=742">
+                    <div class="newIn__img ">
+                      <img src="http://product.hstatic.net/1000351433/product/1_e8523d763bd34365b205da97f5e57ddc_master.jpg " alt="">
+                      <div class="image__hover">
+                        <img src="http://product.hstatic.net/1000351433/product/6_b9ffb9aaf98f477f9fc587f1d5967576_master.jpg" alt="">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="newIn__title">
+                    <p>Sick Fame</p>
+                  </div>
+                </div>
+                <div class="cosl-3">
+                  <a href="?MASP=743">
+                    <div class="newIn__img ">
+                      <img src="http://product.hstatic.net/1000351433/product/0abd51d3-98e1-4511-bb99-417c2c05f548_3e817619be4543fda17a8a33f67fb503_master.jpg " alt="">
+                      <div class="image__hover">
+                        <img src="http://product.hstatic.net/1000351433/product/c401cf72-7560-4104-a0dc-a5155013ea39_409bc89ba35d4964801190845ada4db1_master.jpg" alt="">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="newIn__title">
+                    <p>Warface</p>
+                  </div>
+                </div>
+                <div class="cosl-3">
+                  <a href="?MASP=744">
+                    <div class="newIn__img ">
+                      <img src="http://product.hstatic.net/1000351433/product/z2147232346500_ea9a4c3613a2203db7e3836bdc2980d1_e26d05e95354402b9fd4483137d7dbc4_master.jpg" alt="">
+                      <div class="image__hover">
+                        <img src="http://product.hstatic.net/1000351433/product/z2147232346559_23731888e52242bad7f6bd55dc89800d_03239deb80f24ab6af4cd275d021cd53_master.jpg" alt="">
+                      </div>
+                    </div>
+                  </a>
+                  <div class="newIn__title">
+                    <p>Signature Icon</p>
+                  </div>
+                </div>
+
+
+              </div>
+            </div>
+
+
+
+
+
+          </div>
+
+        </div>
       </div>
+
     </div>
-
-
-
-
-
   </div>
+
+
+
+
+
+
+
+
+
+
+
 
   <?php
   require "inc/footer.php";
@@ -493,14 +247,12 @@
     });
   </script>
   <script>
-    $('.NewIn-slider-nav').slick({
-      autoplay: false,
-      slidesToShow: 2,
+    $(".slider-nav1").slick({
+      autoplay: true,
+      slidesToShow: 4,
       slidesToScroll: 1,
-      // asNavFor: '.slider-for',
-      dots: false,
-      focusOnSelect: true
-
+      prevArrow: '<i class="fa fa-angle-left left"></i>',
+      nextArrow: '<i class="fa fa-angle-right right"></i>'
     });
   </script>
 

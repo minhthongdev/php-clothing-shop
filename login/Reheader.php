@@ -17,12 +17,12 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
     />
     <!-- css -->
-    <link rel="stylesheet" href="./style/header.css?v=<?php echo time(); ?>">
+    <link rel="stylesheet" href="../style/header.css?v=<?php echo time(); ?>">
 </head>
 <body>
     <header class="header__content">  
         <nav class="menu__content navbar navbar-expand-lg navbar-dark ">
-            <a class="navbar-brand" href="index.php">
+            <a class="navbar-brand" href="../index.php">
                 <img src="//theme.hstatic.net/1000357687/1000521705/14/logo.png?v=107" alt="dasd">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#grimmNavbar"
@@ -34,25 +34,25 @@
             <div class="collapse navbar-collapse" id="grimmNavbar">
                 <ul class="navbar-nav mr-auto text-white">
                     <li class="nav-item">
-                        <a class="nav-link home__item" href="index.php">GRIMM DC</a>
+                        <a class="nav-link home__item" href="../index.php">GRIMM DC</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link introduce__item" href="gioiThieu.php">GIỚI THIỆU</a>
+                        <a class="nav-link introduce__item" href="../gioiThieu.php">GIỚI THIỆU</a>
                     </li>
                     <li class="nav-item product__class">
-                        <a class="nav-link products__item" href="tShirtDevelopment.php">ÁO</a>
+                        <a class="nav-link products__item" href="../tShirtDevelopment.php">ÁO</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link pants__item" href="pantsDevelopment.php">QUẦN</a>
+                        <a class="nav-link pants__item" href="../pantsDevelopment.php">QUẦN</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link outerwear__item" href="outerwearDevelopment.php" >ÁO KHOÁC</a>
+                        <a class="nav-link outerwear__item" href="../outerwearDevelopment.php" >ÁO KHOÁC</a>
                     </li>
                     <li class="nav-item ">
-                        <a class="nav-link accessories__item" href="accessories.php" >PHỤ KIỆN</a>
+                        <a class="nav-link accessories__item" href="../accessories.php" >PHỤ KIỆN</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link contact__item" href="lienHe.php">LIÊN HỆ</a>
+                        <a class="nav-link contact__item" href="../lienHe.php">LIÊN HỆ</a>
                     </li>
                 </ul>
             </div>
@@ -60,13 +60,13 @@
         
         <p class="info__content text-right text-white">
 
-            <a href="login/index.php" class="user__item">
+            <a href="../login/index.php" class="user__item">
                 <i class="info__content__user ml-3 fa fa-user"></i>
             </a>
             <a href="#" class="user__item logout">
                 <i class="fas fa-sign-out-alt"></i>
             </a>
-            <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
+            <a href="../cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
                 <i class="fas fa-shopping-cart"></i>
             </a>
             
