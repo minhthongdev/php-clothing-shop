@@ -2,6 +2,9 @@
     overflow-x: hidden;
     font-family: 'Quicksand', sans-serif;
 }
+.info-account{
+    height: 800px;
+}
 .info-account .title{
     margin-top: 110px;
     font-size: 37px;
