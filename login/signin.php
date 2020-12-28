@@ -71,7 +71,7 @@
             $_SESSION['current_user'] = $row;
             var_dump($_SESSION['current_user']);
             if ($row[1]) {
-                header('Location: http://localhost:90/clientpage/php-clothing-shop/index.php');
+                header('Location: http://localhost/doAn/index.php');
                 var_dump('success');
             }
         }

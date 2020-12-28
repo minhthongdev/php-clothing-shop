@@ -28,7 +28,7 @@
         }
 
         .main_products {
-            height: 1700px !important;
+            height: 1760px !important;
         }
     </style>
 

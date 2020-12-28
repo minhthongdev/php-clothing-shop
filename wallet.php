@@ -28,7 +28,7 @@
         }
 
         .main__products__wallet {
-            height: 1180px !important;
+            height: 1210px !important;
         }
     </style>
 
