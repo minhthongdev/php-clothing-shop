@@ -1,6 +1,6 @@
 <?php
-    $connect = new mysqli('localhost','root','','doanweb');
-    $con=mysqli_connect('localhost','root', '', 'doanweb');
+    $connect = new mysqli('localhost','root','','web_database');
+    $con=mysqli_connect('localhost','root', '', 'web_database');
 
     // if($connect->errno !== 0)
     // {
@@ -10,5 +10,5 @@
     //     echo 'Connect success';
     // }
     //Chọn hệ ký tự là utf8 để có thể in ra tiếng Việt.
-    $connect->set_charset('utf8'); //csdl tiếng việt
+    // $connect->set_charset('utf8'); //csdl tiếng việt
 ?>

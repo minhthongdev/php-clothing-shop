@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,13 +20,32 @@
     <link rel="stylesheet" type="text/css" href="slick/slick-theme.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+    <!-- slick carousel -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/kenwheeler/slick@1.8.1/slick/slick-theme.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
 
     <!-- main css -->
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="index.css?v=<?php echo time(); ?>" />
 
 </head>
 
 <body>
+
+    <?php
+
+    include 'connect.php';
+
+    $productsBestSeller = mysqli_query($con, "SELECT sanpham.HINHCHINH, sanpham.HINH1, 
+    sanpham.TENSP,cthd.MASP, SUM(cthd.SOLUONG) as SLBan 
+    from cthd inner join sanpham on cthd.MASP = sanpham.MASP
+    GROUP by MASP ORDER BY SUM(cthd.SOLUONG) DESC LIMIT 5");
+
+    $productsNewArrival = mysqli_query($con, "SELECT HINHCHINH, HINH1, MASP, TENSP
+    FROM sanpham
+    ORDER by MASP DESC
+    LIMIT 5;");
+    ?>
     <!-- dùng chung header -->
     <?php
     require "inc/header.php";
@@ -182,116 +203,84 @@
         </div>
     </section>
 
-    <!-- HÀNG MỚI VỀ -->
-    <!-- kĩ thuật grid-system -->
-    <!-- py-5 là padding trên dưới 5 -->
-    <section class=" responsive">
+
+    <!-- New Arrival and Best Seller Section -->
+
+    <div class=" New__Arrival__Section">
         <div class="grimm__product">
             <div class="contdainer ">
-                <!-- class container giúp căn đều 2 bên -->
                 <div class="row ">
-                    <!-- phần tử nào rớt thành 1 hàng thì đẩy vào ROW -->
                     <div class="col-12 text-center thongdeptrai">
                         <h4>SẢN PHẨM MỚI VỀ</h4>
                     </div>
                 </div>
-                <!-- ROW giúp giữa column thành từng hàng -->
-                <!-- row display flex -->
                 <div class="py-1">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class=" slider-navNewIn ml-5 mr-5">
-                                <!-- BS chia width 100% thành 12col, nên mỗi class chiếm col-3 ( GRID SYSTEM)  -->
-                                <!-- liet ke màn hình nhỏ nhất trong class là đc ( RESPONSIVE) -->
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newina.webp" alt="">
+                    <div class="row ml-5 mr-5">
+                        <div class="col-12 mx-auto">
+                            <div class="slider-nav1">
+                                <?php
+                                while ($row = mysqli_fetch_array($productsNewArrival)) {
+
+                                ?>
+                                    <div class="cosl-3">
+                                        <a href="detail.php?MASP=<?= $row['MASP'] ?>">
+                                            <div class="newIn__img ">
+                                                <img src="<?= $row['HINHCHINH'] ?>" alt="">
+                                                <div class="image__hover">
+                                                    <img src="<?= $row['HINH1'] ?>" alt="">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="newIn__title">
+                                            <p><?= $row['TENSP'] ?></p>
                                         </div>
-
                                     </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect Impact Insoles</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin1.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newin1a.webp" alt="">
-                                        </div>
-
-                                    </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect Comfort Insoles</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin2.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newin2a.webp" alt="">
-                                        </div>
-
-                                    </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect Laces Black</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin3.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newin3a.webp" alt="">
-                                        </div>
-
-                                    </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect - Cure Ultimate Cleaning Kit</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin4.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newin4a.webp" alt="">
-                                        </div>
-
-                                    </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect Eraser - Suede & Nubuck</p>
-                                    </div>
-                                </div>
-                                <div class="col-3">
-                                    <div class="newIn__img ">
-                                        <!-- class img-fluid của BS cho hình responsive vừa khít thẻ cha -->
-                                        <img class="img-fluid" src="img/newin5.webp" alt="">
-                                        <div class="image__hover">
-                                            <img class="img-fluid" src="img/newin5a.webp" alt="">
-                                        </div>
-
-                                    </div>
-                                    <div class="newIn__title">
-                                        <p>Crep Protect - Pills</p>
-                                    </div>
-                                </div>
-
-
+                                <?php } ?>
                             </div>
-
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    <div class=" New__Arrival__Section">
+        <div class="grimm__product">
+            <div class="contdainer ">
+                <div class="row ">
+                    <div class="col-12 text-center thongdeptrai">
+                        <h4>SẢN PHẨM BÁN CHẠY NHẤT</h4>
+                    </div>
+                </div>
+                <div class="py-1">
+                    <div class="row ml-5 mr-5">
+                        <div class="col-12 mx-auto">
+                            <div class="slider-nav1">
+                                <?php
+                                while ($row = mysqli_fetch_array($productsBestSeller)) {
 
-    </section>
+                                ?>
+                                    <div class="cosl-3">
+                                        <a href="detail.php?MASP=<?= $row['MASP'] ?>">
+                                            <div class="newIn__img ">
+                                                <img src="<?= $row['HINHCHINH'] ?>" alt="">
+                                                <div class="image__hover">
+                                                    <img src="<?= $row['HINH1'] ?>" alt="">
+                                                </div>
+                                            </div>
+                                        </a>
+                                        <div class="newIn__title">
+                                            <p><?= $row['TENSP'] ?></p>
+                                        </div>
+                                    </div>
+                                <?php } ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
 
 
     <!-- TÌM KIẾM CỬA HÀNG  -->
@@ -331,23 +320,28 @@
 
 
 
-    <!-- Bootstrap -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <!-- slick -->
     <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
     <script type="text/javascript" src="slick/slick.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script> -->
 
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-   
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <script>
-        $('.slider-navNewIn').slick({
+        $(".slider-nav1").slick({
+            autoplay: true,
             slidesToShow: 4,
             slidesToScroll: 1,
-            autoplay: true,
-            autoplaySpeed: 1800,
+            prevArrow: '<i class="fa fa-angle-left left"></i>',
+            nextArrow: '<i class="fa fa-angle-right right"></i>'
         });
     </script>
 

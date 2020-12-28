@@ -14,7 +14,6 @@
 
     <!-- FILE CSS -->
     <link rel="stylesheet" href="./login.css?v=<?php echo time(); ?>" />
-
 </head>
 
 <body>

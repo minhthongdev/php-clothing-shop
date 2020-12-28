@@ -39,14 +39,15 @@
   $product['images'] = mysqli_fetch_all($imgLibrary, MYSQLI_ASSOC);
 
 
+  $productsBestSeller = mysqli_query($con, "SELECT sanpham.HINHCHINH, sanpham.HINH1, 
+  sanpham.TENSP,cthd.MASP, SUM(cthd.SOLUONG) as SLBan 
+  from cthd inner join sanpham on cthd.MASP = sanpham.MASP
+  GROUP by MASP ORDER BY SUM(cthd.SOLUONG) DESC LIMIT 5");
 
-  $resultNewArrival = mysqli_query($con, "SELECT * FROM `sanpham` GROUP by MASP DESC LIMIT 5");
-  $productNewArrival = mysqli_fetch_assoc($resultNewArrival);
-  $imgLibrary = mysqli_query($con, "SELECT `HINHCHINH`,`HINH1` FROM `sanpham` WHERE `MASP` = " . $_GET['MASP']);
-
-
-
-
+  $productsNewArrival = mysqli_query($con, "SELECT HINHCHINH, HINH1, MASP, TENSP
+  FROM sanpham
+  ORDER by MASP DESC
+  LIMIT 5;");
   ?>
 
   <?php
@@ -119,89 +120,32 @@
           </div>
         </div>
         <div class="py-1">
-
           <div class="row ml-5 mr-5">
             <div class="col-12 mx-auto">
               <div class="slider-nav1">
-                <div class="cosl-3">
-                  <a href="?MASP=741">
-                    <div class="newIn__img ">
-                      <img src="//product.hstatic.net/1000351433/product/0c8a4dda-804d-435f-9700-800ae3e6b2f6_d944fb586b644de6a0b593dc5705e150_master.jpg" alt="">
-                      <div class="image__hover">
-                        <img src="http://product.hstatic.net/1000351433/product/506df52b-b083-4e99-85e3-08c5c31af412_7411f34241ab4685b4b65c16cc5746d1_master.jpg" alt="">
-                      </div>
-                    </div>
-                  </a>
-                  <div class="newIn__title">
-                    <p>Bad Colorful</p>
-                  </div>
-                </div>
-                <div class="cosl-3">
-                  <a href="?MASP=745">
-                    <div class="newIn__img ">
-                      <img src="http://product.hstatic.net/1000351433/product/31479409-38e7-47c5-b45d-09ad541b6928_5e53f09f5a594484831fb4f73b2f2612_master.jpg" alt="">
-                      <div class="image__hover">
-                        <img src="http://product.hstatic.net/1000351433/product/bd626ec9-d9c7-4867-9be1-ee4a089a3b3e_9842eceb79bc4f74a99bbe215e670221_master.jpg" alt="">
-                      </div>
-                    </div>
-                  </a>
-                  <div class="newIn__title">
-                    <p>Rabbigel</p>
-                  </div>
-                </div>
-                <div class="csol-3">
-                  <a href="?MASP=742">
-                    <div class="newIn__img ">
-                      <img src="http://product.hstatic.net/1000351433/product/1_e8523d763bd34365b205da97f5e57ddc_master.jpg " alt="">
-                      <div class="image__hover">
-                        <img src="http://product.hstatic.net/1000351433/product/6_b9ffb9aaf98f477f9fc587f1d5967576_master.jpg" alt="">
-                      </div>
-                    </div>
-                  </a>
-                  <div class="newIn__title">
-                    <p>Sick Fame</p>
-                  </div>
-                </div>
-                <div class="cosl-3">
-                  <a href="?MASP=743">
-                    <div class="newIn__img ">
-                      <img src="http://product.hstatic.net/1000351433/product/0abd51d3-98e1-4511-bb99-417c2c05f548_3e817619be4543fda17a8a33f67fb503_master.jpg " alt="">
-                      <div class="image__hover">
-                        <img src="http://product.hstatic.net/1000351433/product/c401cf72-7560-4104-a0dc-a5155013ea39_409bc89ba35d4964801190845ada4db1_master.jpg" alt="">
-                      </div>
-                    </div>
-                  </a>
-                  <div class="newIn__title">
-                    <p>Warface</p>
-                  </div>
-                </div>
-                <div class="cosl-3">
-                  <a href="?MASP=744">
-                    <div class="newIn__img ">
-                      <img src="http://product.hstatic.net/1000351433/product/z2147232346500_ea9a4c3613a2203db7e3836bdc2980d1_e26d05e95354402b9fd4483137d7dbc4_master.jpg" alt="">
-                      <div class="image__hover">
-                        <img src="http://product.hstatic.net/1000351433/product/z2147232346559_23731888e52242bad7f6bd55dc89800d_03239deb80f24ab6af4cd275d021cd53_master.jpg" alt="">
-                      </div>
-                    </div>
-                  </a>
-                  <div class="newIn__title">
-                    <p>Signature Icon</p>
-                  </div>
-                </div>
+                <?php
+                while ($row = mysqli_fetch_array($productsNewArrival)) {
 
-
+                ?>
+                  <div class="cosl-3">
+                    <a href="detail.php?MASP=<?= $row['MASP'] ?>">
+                      <div class="newIn__img ">
+                        <img src="<?= $row['HINHCHINH'] ?>" alt="">
+                        <div class="image__hover">
+                          <img src="<?= $row['HINH1'] ?>" alt="">
+                        </div>
+                      </div>
+                    </a>
+                    <div class="newIn__title">
+                      <p><?= $row['TENSP'] ?></p>
+                    </div>
+                  </div>
+                <?php } ?>
               </div>
             </div>
-
-
-
-
-
           </div>
-
         </div>
       </div>
-
     </div>
   </div>
 
@@ -209,6 +153,45 @@
 
 
 
+
+  <div class=" New__Arrival__Section">
+    <div class="grimm__product">
+      <div class="contdainer ">
+        <div class="row ">
+          <div class="col-12 text-center thongdeptrai">
+            <h4>SẢN PHẨM BÁN CHẠY NHẤT</h4>
+          </div>
+        </div>
+        <div class="py-1">
+          <div class="row ml-5 mr-5">
+            <div class="col-12 mx-auto">
+              <div class="slider-nav1">
+                <?php
+                while ($row = mysqli_fetch_array($productsBestSeller)) {
+
+                ?>
+                  <div class="cosl-3">
+                    <a href="detail.php?MASP=<?= $row['MASP'] ?>">
+                      <div class="newIn__img ">
+                        <img src="<?= $row['HINHCHINH'] ?>" alt="">
+                        <div class="image__hover">
+                          <img src="<?= $row['HINH1'] ?>" alt="">
+                        </div>
+                      </div>
+                    </a>
+                    <div class="newIn__title">
+                      <p><?= $row['TENSP'] ?></p>
+                    </div>
+                  </div>
+                <?php } ?>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 
 
 
@@ -224,9 +207,7 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
-  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-  <script type="text/javascript" src="slick/slick.min.js"></script> -->
+  
   <script>
     $('.slider-for').slick({
       autoplay: false,

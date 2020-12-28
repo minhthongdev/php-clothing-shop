@@ -55,7 +55,7 @@
         ?>
             <style>
                 .main__products__outerwear{
-                    height: 1400px !important;
+                    height: 1150px !important;
                 }
                 .main_products_accessories{
                     height: 2100px !important;
