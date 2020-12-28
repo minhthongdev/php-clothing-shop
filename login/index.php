@@ -1,8 +1,4 @@
-<?php
-if (!isset($_SESSION)) {
-    session_start();
-}
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,7 +21,6 @@ if (!isset($_SESSION)) {
 
     <?php
     // require "./Reheader.php";
-    require "../public/js.php";
     ?>
     <div class="login__section">
         <div class="container login__section__container">
@@ -49,10 +44,10 @@ if (!isset($_SESSION)) {
                                 </div>
                                 <div class="clearfix action_account_custommer">
                                     <div class="action_bottom button dark">
-                                        <input name='submit' action="submit" class="btn btn-signin" type="submit" value="Đăng nhập" />
+                                        <input name='submit' action="submit" class="btn btn-signin" type="submit" value="Login" />
                                     </div>
                                     <div class="req_pass">
-                                        hoặc <a href="" title="Đăng ký">Đăng ký</a>
+                                        hoặc <a href="./../register/index.php" title="Đăng ký">Đăng ký</a>
                                     </div>
                                 </div>
                             </form>
@@ -63,13 +58,10 @@ if (!isset($_SESSION)) {
             </div>
         </div>
     </div>
-
-
-  
-
     <?php
     // require "./Refooter.php";
-    include './connect.php';
+    include 'connect.php';
+    session_start();
     if (isset($_POST['submit'])) {
         $username = $_POST['name'];
         $password = $_POST['password'];
@@ -77,10 +69,11 @@ if (!isset($_SESSION)) {
         $rs = $con->query($sql);
         $row = mysqli_fetch_row($rs);
         if (($username == $row[2] && $password == $row[3])) {
-
             $_SESSION['current_user'] = $row;
+            var_dump($_SESSION['current_user']);
             if ($row[1]) {
-                header('../index.php');
+                header('Location: http://localhost:90/clientpage/php-clothing-shop/index.php');
+                var_dump('success');
             }
         }
     }

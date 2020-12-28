@@ -90,7 +90,7 @@
                         //     foreach ($orderProducts as $key => $product) {
                     
                         date_default_timezone_set("Asia/Bangkok");
-                        $date = date('d-m-Y h:i:s A');
+                        $date = date('Y-m-d h:i:s');
                         $insertOrder = mysqli_query($con, "INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NGAYHD`,
                             `GIAMGIA`, `THANHTIEN`, `GHICHU`,`TrangThai`, `IDNGUOIDUYET`, `HOTEN`, `SDT`, 
                             `DIACHI`) VALUES (NULL, $current_user[1],  '" . $date . "',  '', '" . $total . "',

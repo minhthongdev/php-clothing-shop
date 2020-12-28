@@ -1,0 +1,80 @@
+* {
+    overflow-x: hidden;
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .login__section {
+    height: 800px;
+    position: relative;
+  }
+  .login__section__login{
+    height: 100vh;
+    border-right: 1px solid #ededed;
+  }
+  .login__section__container{
+    /* padding-left: 90px; */
+    margin-right: 90px;
+  
+  }
+  .login__section h1 {
+    font-size: 42px;
+    font-weight: 900;
+    margin: 0px 0;
+    line-height: initial;
+  }
+  .header__page{
+    position: absolute;
+    top: 40%;
+  }
+  
+  .login__section .header__page::after {
+    content: "";
+    background: #000;
+    display: block;
+    width: 60px;
+    height: 4px;
+    margin-top: 30px;
+  }
+  /* form */
+  
+  #customer_login{
+    position: absolute;
+    top: 10%;
+    width: 100%;
+    overflow: hidden;
+  }
+  .large_form {
+    margin-bottom: 30px;
+  }
+  .userbox input[type=email], .userbox input[type=password], .userbox input[type=text] {
+    width: 100%;
+    height: 55px;
+    border: 1px solid transparent;
+    background: #ededed;
+    color: #272727;
+    padding: 0 20px;
+    font-weight: 500;
+    -webkit-appearance: none;
+  }
+  .action_bottom{
+    height: 60px;
+  }
+  .userbox .action_bottom .btn {
+    display: inline-block;
+    border-radius: 0;
+    padding: 0 30px;
+    height: 45px;
+    line-height: 45px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background: black;
+    color: aliceblue;
+  }
+  .btn:hover, .btn:focus, .btn.focus {
+    color: #333;
+    text-decoration: none;
+  }
+
+  .col-6 {
+      overflow: hidden;
+  }
