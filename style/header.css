@@ -40,8 +40,8 @@ header{
     left: 89%;
 }
 .info__content i{
-    font-size: 30px;
-    height: 32px;
+    font-size: 25px;
+    height: 25px;
 }
  .info__content .info__content__user{
     font-size: 20px;
@@ -61,7 +61,7 @@ header{
     border-radius: 5px;
   }
   .cart i {
-    font-size: 25px;
+    font-size: 20px;
     color: white;
   }
   .cart:before {
@@ -116,7 +116,7 @@ header{
 }
 
 .logout {
-    margin-left: 70px !important;
+    /* margin-left: 70px !important; */
     font-size: 20px;
     margin-bottom: 5px;
 }

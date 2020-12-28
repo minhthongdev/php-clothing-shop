@@ -27,7 +27,7 @@
             color: rgba(255, 255, 255, .55) !important;
         }
 
-        .main_products {
+        .main__products__wallet {
             height: 1180px !important;
         }
     </style>
