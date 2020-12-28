@@ -42,7 +42,7 @@
                         
                             </li>
                             <li> <i class="fa fa-envelope"></i>
-                                <span class="info"> grimmdcsaigon@gmail.com</span>
+                                <span class="info"> grimmdc@gmail.com</span>
                         
                             </li>
                         </ul>
