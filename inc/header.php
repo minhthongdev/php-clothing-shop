@@ -1,3 +1,10 @@
+<!--  -->
+<?php 
+    if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -23,7 +30,7 @@
     <header class="header__content">  
         <nav class="menu__content navbar navbar-expand-lg navbar-dark ">
             <a class="navbar-brand" href="index.php">
-                <img src="//theme.hstatic.net/1000357687/1000521705/14/logo.png?v=107" alt="dasd">
+                <img src="//theme.hstatic.net/1000357687/1000521705/14/logo.png?v=107" alt="">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#grimmNavbar"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -59,11 +66,20 @@
         </nav>
         
         <p class="info__content text-right text-white">
-
-            <a href="login/index.php" class="user__item">
-                <i class="info__content__user ml-3 fa fa-user"></i>
-            </a>
-            
+            <?php 
+                $link = '';
+                if (isset($_SESSION['current_user'])) {
+                    $link = './infoAccount.php';
+                }
+                else {
+                    $link = 'login/index.php';
+                }
+                echo "
+                    <a href='$link' class='user__item'>
+                        <i class='info__content__user ml-3 fa fa-user'></i>
+                    </a>
+                "
+            ?>
 
             <a href="cartDevelopment.php" id="cart" class=" cart cart__item" data-totalitems=>
                 <i class="fas fa-shopping-cart"></i>
@@ -84,7 +100,8 @@
                     method: 'POST',
                     data:{logout:logout},
                     success: function(data){
-                        alert(data);
+                        alert('Bạn đã đăng xuất thành công');
+                        window.location.reload();
                     }
                 })
          });

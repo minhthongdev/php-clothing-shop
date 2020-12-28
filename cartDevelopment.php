@@ -15,7 +15,7 @@
     <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" />
     <!-- css -->
-    <link rel="stylesheet" href="style/cart.css">
+    <link rel="stylesheet" href="style/cart.css?v=<?php echo time(); ?>">
 </head>
 
 <body>
@@ -29,6 +29,7 @@
     }
     $error = false;
     $success = false;
+    $slCurrent=0 ;
     if (isset($_GET["action"])) {
         function updateCart($add = false)
         {
@@ -87,15 +88,18 @@
 
 
                         //     foreach ($orderProducts as $key => $product) {
-
+                    
+                        date_default_timezone_set("Asia/Bangkok");
+                        $date = date('d-m-Y h:i:s A');
                         $insertOrder = mysqli_query($con, "INSERT INTO `hoadon` (`MAHD`, `MAKH`, `NGAYHD`,
                             `GIAMGIA`, `THANHTIEN`, `GHICHU`,`TrangThai`, `IDNGUOIDUYET`, `HOTEN`, `SDT`, 
-                            `DIACHI`) VALUES (NULL, $current_user[1],  '" . time() . "',  '', '" . $total . "',
+                            `DIACHI`) VALUES (NULL, $current_user[1],  '" . $date . "',  '', '" . $total . "',
                             '" . $_POST['note'] . "', 0 ,null, '" . $_POST['name1'] . "',
                             '" . $_POST['phone'] . "', '" . $_POST['address1'] . "');
                             ");
                         $orderID = $con->insert_id;
                         $insertString = "";
+                        // $updateString = "";
                         $num = 0;
 
                         foreach ($orderProducts as $key => $product) {
@@ -105,6 +109,10 @@
                             if ($key != count($orderProducts) - 1) {
                                 $insertString .=  ",";
                             }
+                            $sl = (int)$_POST['quantity'][$product['MASP']];
+                            $masp = $product['MASP'];
+                            $updateString ="UPDATE sanpham SET SOLUONG=SOLUONG - $sl WHERE MASP= $masp";
+                            $update = mysqli_query($con, $updateString);
                         }
                         $insertOrder = mysqli_query($con,  "INSERT INTO `cthd` (`MAHD`,
                         `MASP`, `SOLUONG`, `SIZE`, `GIA`) VALUES " . $insertString . ";");
@@ -154,11 +162,21 @@
                                     <th class="product-delete">Xóa</th>
                                 </tr>
                                 <?php
+                                $arrQuantity = [];
+                                $arrSLTrongKho = [];
                                 if (!empty($products)) {
                                     $total = 0;
                                     $num = 1;
                                     while ($row = mysqli_fetch_array($products)) { ?>
                                         <tr>
+                                            <?php 
+                                                $idSP = (int)$row['MASP'];
+                                                $soluongquery = "SELECT SOLUONG FROM SANPHAM WHERE masp=$idSP";
+                                                $rsSL = $con->query($soluongquery);
+                                                $rowTemp = mysqli_fetch_array($rsSL);
+                                                $rowSL = $rowTemp[0];
+                                                settype($rowSL, "integer");
+                                            ?>
                                             <td class="product-number"><?= $num++; ?></td>
                                             <td class="product-img"><img class="img-fluid" src="<?= $row['HINHCHINH'] ?>" /></td>
                                             <td class="product-name"><?= $row['TENSP'] ?></td>
@@ -166,6 +184,10 @@
                                             <td class="product-quantity"><input type="text" value="<?= $_SESSION["cart"][$row['MASP']] ?>" name="quantity[<?= $row['MASP'] ?>]" /></td>
                                             <td class="total-money"><?= number_format($row['GIA'] * $_SESSION["cart"][$row['MASP']], 0, ",", ".") ?></td>
                                             <td class="product-delete"><a href="cartDevelopment.php?action=delete&MASP=<?= $row['MASP'] ?>">Xóa</a></td>
+                                            <?php 
+                                                $arrQuantity[] = (int)$_SESSION["cart"][$row['MASP']];
+                                                $arrSLTrongKho[] = $rowSL;
+                                            ?>
                                         </tr>
                                     <?php
                                         $total += $row['GIA'] * $_SESSION["cart"][$row['MASP']];
@@ -186,31 +208,48 @@
                                 } ?>
                             </table>
                             <div id="form-button">
+                                <?php 
+                                    $temp = 0;
+                                    // echo $slCurrent;
+                                    // echo $rowSL;
+                                    foreach ($arrQuantity as $i => $quantity) {
+                                        if ($quantity <= $arrSLTrongKho[$i]) {
+                                        }
+                                        else {
+                                            $temp++;
+                                        }
+                                    }
+                                ?>
                                 <input type="submit" name="update_click" value="Cập nhật" />
                             </div>
                         </div>
                         <div class="col-md-4 col-12 form__section">
                             <?php
-                            if (isset($_SESSION['current_user'])) {
-                                $makh = $current_user[1];
-                                $sql = "SELECT HOTEN, SDT, DIACHI FROM KHACHHANG WHERE MAKH= $makh";
-                                $rs = $con->query($sql);
-                                $row = mysqli_fetch_row($rs);
-                                $ten = $row[0];
-                                $sdt = $row[1];
-                                $diachi = $row[2];
-
-                                echo "
-                            <div>
-                            <label>Người nhận: </label><input class='input__item' type='text' value='$ten' name='name1' /></div>
-                            <div><label>Điện thoại: </label><input class='input__item' type='text' value='$sdt' name='phone' /></div>
-                            <div><label>Địa chỉ: </label><input class='input__item' type='text' value='$diachi' name='address1' /></div>
-                            <div><label>Ghi chú: </label><textarea name='note' cols='50' rows='7'></textarea></div>
-                            <input type='submit' name='order_click' value='Đặt hàng' />
-                    ";
-                            } else {
-                                echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua hàng";
-                            }
+                                if (isset($_SESSION['current_user'])) {
+                                    $makh = $current_user[1];
+                                    $sql = "SELECT HOTEN, SDT, DIACHI FROM KHACHHANG WHERE MAKH= $makh";
+                                    $rs = $con->query($sql);
+                                    $row = mysqli_fetch_row($rs);
+                                    $ten = $row[0];
+                                    $sdt = $row[1];
+                                    $diachi = $row[2];
+                                    echo "
+                                <div>
+                                <label>Người nhận: </label><input class='input__item' type='text' value='$ten' name='name1' /></div>
+                                <div><label>Điện thoại: </label><input class='input__item' type='text' value='$sdt' name='phone' /></div>
+                                <div><label>Địa chỉ: </label><input class='input__item' type='text' value='$diachi' name='address1' /></div>
+                                <div><label>Ghi chú: </label><textarea name='note' cols='50' rows='7'></textarea></div>";
+                                if ($temp == 0) {  
+                                echo "<input type='submit' name='order_click' value='Đặt hàng' />";
+                                }
+                                else {
+                                    echo "<div class='red'>Số lượng sản phẩm không đủ để thực hiện mua hàng, vui lòng chọn lại</div>";
+                                }
+                            ?>   
+                            <?php
+                                } else {
+                                    echo "Bạn chưa đăng nhập, vui lòng đăng nhập để mua hàng";
+                                }
                             ?>
 
                         </div>

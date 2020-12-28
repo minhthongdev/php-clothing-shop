@@ -18,7 +18,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css"
     />
     <!-- css -->
-    <link rel="stylesheet" href="./style/footer.css">
+    <link rel="stylesheet" href="./style/footer.css?v=<?php echo time(); ?>">
 </head>
 <body>
     

@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
   <!-- detail css -->
-  <link rel="stylesheet" href="style/detail.css" />
+  <link rel="stylesheet" href="style/detail.css?v=<?php echo time(); ?>" />
 </head>
 
 <body>

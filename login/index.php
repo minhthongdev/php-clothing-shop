@@ -16,7 +16,7 @@
         <input type="text" value="Username" onfocus="this.value='';" name='name'/>
         <input type="text" value="Password" onfocus="this.value='';" name='password'/>
         <input type="submit" value="Login" action="submit" name='submit'/>
-        <a href='RegisterForm.php' class="btn btn-primary">Register account</a>
+        <a href='http://localhost:90/adminpage/index.php' class="btn btn-primary">Đến trang admin</a>
     </form>
     </div><!--form-->
     </div>
@@ -29,11 +29,13 @@
             $sql = "SELECT * FROM user WHERE TAIKHOAN='$username'";
             $rs = $con->query($sql);
             $row=mysqli_fetch_row($rs); 
-            if(($username==$row[2] && $password==$row[3])){
+            if(($username==$row[2] && $password==$row[3] && $row[4]==0 )){
                 $_SESSION['current_user'] = $row;
-                if ($row[1]) {
-                    header ('Location: ./../index.php');
-                }
+                header ('Location: ./../index.php');
+            }
+            else if(($username==$row[2] && $password==$row[3] && $row[4]==1 )){
+                $_SESSION['current_user'] = $row;
+                header ('Location: http://localhost:90/adminpage/index.php');
             }
         }?>
     

@@ -1,0 +1,20 @@
+.info-account {
+    margin-top: 150px;
+    overflow: hidden;
+    margin-bottom: 50px;
+}
+
+h1, h3 {
+    overflow: hidden;
+    font-weight: bold;
+}
+
+.title {
+    text-align: center;
+    border-bottom: 1px solid black;
+}
+
+table {
+    margin-bottom: 20px;
+}
+

@@ -5,21 +5,24 @@
 }
 .section__cart{
     margin-top: 200px;
-    
-
 }
+
+.red {
+    color: red;
+}
+
 .section__cart #cart-form{
     height: 650px;
 }
 table {
     border-collapse: collapse;
-    width: 800px;
+    width: 762px;
 }
 
 table,
 th,
 td {
-    border: none;
+    border: none !important;
 }
 
 table .product-img img {
@@ -106,7 +109,7 @@ input[name="order_click"] {
     margin-top: 10px;
     height: 30px;
     line-height: 30px;
-}
+}s
 
 #add-to-cart-form input[type='submit'] {
     background: #000;
